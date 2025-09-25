@@ -11,8 +11,8 @@ public class RetoLogrosGamer_Enunciado {
         int tiempoMin = 25;
         int objetivos = 1;
         boolean desconexion = false;
-        int dañoHecho = 18000;
-        int dañoRecibido = 6000;
+        int danoHecho = 18000;
+        int danoRecibido = 6000;
         int oro = 2300;
 
         System.out.println("Juego: " + juego);
@@ -48,7 +48,7 @@ public class RetoLogrosGamer_Enunciado {
             System.out.println("Logro: Intocable \uD83D\uDC51");
         } else if (tiempoMin > 60) {
             System.out.println("Logro: Maratón gamer ⏱\uFE0F");
-        } else if (dañoHecho > (dañoRecibido * 2)) {
+        } else if (danoHecho > (danoRecibido * 2)) {
             System.out.println("Logro: Dominio total \uD83D\uDCA5");
         } else if (objetivos >= 3) {
             System.out.println("Logro: Objetivos de mapa \uD83C\uDFAF");
@@ -66,18 +66,18 @@ public class RetoLogrosGamer_Enunciado {
             if (objetivos >= 2 && asistencias >= 10) {
                 System.out.println("Shotcaller (LoL) 🗣️");
             }
-            if (dañoHecho >= 30000 && muertes <= 3) {
+            if (danoHecho >= 30000 && muertes <= 3) {
                 System.out.println("Carry principal (LoL) 🛡️");
             }
         } else if (juego.equals("Minecraft")) {
-            if (tiempoMin >= 45 && dañoRecibido == 0) {
+            if (tiempoMin >= 45 && danoRecibido == 0) {
                 System.out.println("Superviviente pacífico (MC) 🌿");
             }
             if (objetivos >= 5) {
                 System.out.println("Constructor incansable (MC) 🧱");
             }
         } else if (juego.equals("Pokemon")) {
-            if (kills >= 6 && dañoRecibido <= 1000) {
+            if (kills >= 6 && danoRecibido <= 1000) {
                 System.out.println("Entrenador maestro (PKMN) 🧢");
             }
             if (asistencias >= 3) {
