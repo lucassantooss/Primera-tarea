@@ -1,48 +1,49 @@
+import static java.lang.Math.max;
+
 public class RetoLogrosGamer_Enunciado {
 
 
     public static void main(String[] args) {
 
-
-        String juego = "Fortnite";
+        //Variables
+        String juego = "Lol";
         int kills = 16;
         int muertes = 2;
         int asistencias = 3;
         int tiempoMin = 25;
         int objetivos = 1;
-        boolean desconexion = false;
+        boolean desconexion = true;
         int danoHecho = 18000;
         int danoRecibido = 6000;
         int oro = 2300;
+        double KDA = ((kills + asistencias) / max(1, muertes));
 
+
+        //Imprimir valores
         System.out.println("Juego: " + juego);
-
-        if (muertes == 0 && kills == 0 && asistencias == 0 && tiempoMin < 2) {
-            System.out.println("Partida inválida: AFK");
-            return;
-        }
-
-        if (desconexion = true && tiempoMin < 5) {
-            System.out.println("Logro NEGATIVO: Rage Quit \uD83D\uDE20");
-            return;
-
-        }
-        double KDA = ((kills + asistencias) / Math.max(1, muertes));
         System.out.println("KDA = " + KDA);
 
 
-        if (KDA >= 5) {
+        //Comprobar si tuvo RQ y dar logro negativo
+        boolean tuvoRq = (desconexion && tiempoMin < 5);
+        if (tuvoRq) {
+            System.out.println("Logro NEGATIVO: Rage Quit \uD83D\uDE20");
+        }
+
+        //Comprobar que nivel de jugador se le da
+        if (KDA >= 5 && !tuvoRq) {
             System.out.println("Jugador PRO");
-        } else if (KDA >= 3 && KDA < 5) {
+        } else if (KDA >= 3) {
             System.out.println("Jugador BUENO");
-        } else if (KDA >= 1 && KDA < 3) {
+        } else if (KDA >= 1) {
             System.out.println("Jugador NORMAL");
-        } else if (KDA < 1) {
+        } else {
             System.out.println("Jugador NOOB");
         }
 
-
-        if (kills >= 10) {
+        if (muertes == 0 && kills == 0 && asistencias == 0 && tiempoMin < 2) {
+            System.out.println("Partida inválida: AFK");
+        } else if (kills >= 10) {
             System.out.println("Logro: Cazador experto \uD83C\uDFF9");
         } else if (muertes == 0 && kills >= 5) {
             System.out.println("Logro: Intocable \uD83D\uDC51");
@@ -57,31 +58,31 @@ public class RetoLogrosGamer_Enunciado {
 
         if (juego.equals("Fortnite")) {
             if (kills >= 15 && muertes <= 2) {
-                System.out.println("Victoria agresiva (Fortnite) 🔫");
+                System.out.println("Victoria agresiva 🔫");
             }
             if (oro >= 2000) {
-                System.out.println("Ahorrista de V-Bucks (Fortnite) 💰");
+                System.out.println("Ahorrista de V-Bucks 💰");
             }
         } else if (juego.equals("LoL")) {
             if (objetivos >= 2 && asistencias >= 10) {
-                System.out.println("Shotcaller (LoL) 🗣️");
+                System.out.println("Shotcaller 🗣️");
             }
             if (danoHecho >= 30000 && muertes <= 3) {
-                System.out.println("Carry principal (LoL) 🛡️");
+                System.out.println("Carry principal 🛡️");
             }
         } else if (juego.equals("Minecraft")) {
             if (tiempoMin >= 45 && danoRecibido == 0) {
-                System.out.println("Superviviente pacífico (MC) 🌿");
+                System.out.println("Superviviente pacífico 🌿");
             }
             if (objetivos >= 5) {
-                System.out.println("Constructor incansable (MC) 🧱");
+                System.out.println("Constructor incansable 🧱");
             }
         } else if (juego.equals("Pokemon")) {
             if (kills >= 6 && danoRecibido <= 1000) {
-                System.out.println("Entrenador maestro (PKMN) 🧢");
+                System.out.println("Entrenador maestro 🧢");
             }
             if (asistencias >= 3) {
-                System.out.println("Apoyo del equipo (PKMN) 🤝");
+                System.out.println("Apoyo del equipo 🤝");
             }
         }
 
